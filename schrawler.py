@@ -17,4 +17,6 @@ url = input()
 output = requests.get(url)
 
 #output
-print(output.text)
+file = open("output.txt", "a")
+file.write(output.text)
+file.close()
