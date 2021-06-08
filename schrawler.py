@@ -15,4 +15,8 @@ import urllib
 print("Enter website to crawl: ")
 url = input()
 #might need to use urllib.request.urlopen()
-urllib.urlopen(url)
+url = urllib.urlopen(url)
+
+#output
+output = url.read()
+print(output)
