@@ -1,5 +1,5 @@
 #used to get url contents apparently
-import urllib
+import requests
 
 #Algorithm:
 #1.Get website url
@@ -14,9 +14,7 @@ import urllib
 #Testing on one website at the moment
 print("Enter website to crawl: ")
 url = input()
-#might need to use urllib.request.urlopen()
-url = urllib.urlopen(url)
+output = requests.get(url)
 
 #output
-output = url.read()
-print(output)
+print(output.text)
