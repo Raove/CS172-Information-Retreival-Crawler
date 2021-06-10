@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 #Algorithm:
 #1.Get website url
 #2.Scan through website url
-#3.Get any hyperlinks not in the robot.txt and put in list
+#3.Get any hyperlinks not in the robot.txt/not a duplicate and put in list
 #4.Store parse and store website content as txt file
 #5.Run txt file through Assignment 1 code
 #6.Repeat 4 and 5 for each link stored from 3
