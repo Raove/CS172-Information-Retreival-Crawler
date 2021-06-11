@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup #requires pip install beautifulsoup4
 import urllib.robotparser
 
 exitProgram = False
-URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.stanford.edu/"]
+URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
 while(exitProgram != True):
     print("\n\nChoose an option:\n1. Run crawler and make HTML files.\n2. Build index.\n3. Show URL's crawled.\n4. Add URL to crawl.\n5. Exit program.\n")
@@ -16,7 +16,12 @@ while(exitProgram != True):
         levels = int(levels)
         for url in URLs:
             rp = urllib.robotparser.RobotFileParser()
-            source = requests.get(url).text
+            print(url)
+            try:
+                source = requests.get(url).text
+            except requests.exceptions.ConnectionError:
+                requests.status_codes = "Connection Refused"
+                print("Connection refused")
             pageUrls = []
             level = 1
             pageUrls.append(url)
@@ -30,7 +35,6 @@ while(exitProgram != True):
                 f = open(r"C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                 f.write(soup.prettify())
                 f.close()
-                level = 1
                 for urls in soup.find_all('a', href=True):
                     if urls not in pageUrls:
                         # print(urls)
@@ -47,7 +51,7 @@ while(exitProgram != True):
                                 f = open(r"C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                                 f.write(soup2.prettify())
                                 f.close()
-                                print(level)
+                                print("Level:",level)
                                 pageUrls.append(urls.get('href'))
                                 if level == levels:
                                     break
