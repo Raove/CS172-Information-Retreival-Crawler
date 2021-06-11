@@ -15,10 +15,10 @@ from requests.models import Response
 URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
 #saved path for file crawling test purposes, replace red text in line 41 and 57
-Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
-Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
+#Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
+#Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
 Mariopath = ""
-Arturopath = "C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files"
+#Arturopath = "C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files"
 list1 = []
 def find_body(html_file):
     #html_file =html_file.read()
@@ -124,19 +124,20 @@ def crawler():
                 
                     response = esConn.index(index=indexName,body=doc)
                     print(response)
-                    response  = esConn.search(index=indexName, body={"query":{"match_all":{}}})
-                    #print(response)
-
-                    query = "unleash"
-                    response = esConn.search(index=indexName,body = {
-                        'query':{
-                            'match':{
-                                "text":query
-                            }
-                        }
-                    })
-                    print(response)
                 f.close()
+            response  = esConn.search(index=indexName, body={"query":{"match_all":{}}})
+                    #print(response)
+                
+            query = "unleash"
+            response = esConn.search(index=indexName,body = {
+                'query':{
+                    'match':{
+                        "text":query
+                    }
+                }
+            })
+            print(response)
+                
             #esConn = Elasticsearch(connection_string)
            # esConn.indices.delete(index=indexName, ignore=[400,404])
             #response = esConn.indices.create(index=indexName,ignore = 400)
