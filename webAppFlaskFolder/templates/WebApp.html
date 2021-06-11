@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-    input[type=text]{
-        float: none;
-        display: block;
-        text-align: left;
-        width: 30%;
-        margin: 0 auto;
-        padding: 5px;
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation-rtl.min.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 
-    }
-    input[type=text]:focus{
-       border: 1px solid #ccc; 
-    }
-
-    body{
-        background-color: #729fc4;
-        font-family: "Helvetica Neue Light", Helvetica, sans-serif;
-        font-weight: 300;
-        text-align: center;
-    }
     
-</style>
+
 </head>
 
 
-    <body>
-        <h1>CS172 Information Retrieval Crawler</h1>
+    <body style="background-color: #94cdff";
+        font-family: "Helvetica Neue Light", Helvetica, sans-serif;
+        font-weight: 300;
+        text-align: center;>
+    
+      
+        <div class='row' styles"height: 80vh; display: flex; justify-content: center; align-items: center">
+    <div class='small-8 columns'>
+      <h1> CS172 Crawler </h1>
+      <form action='search' method='GET'>
+        <label for="id_q">Search word(s): </label>
+        <input type="text" id="id_q" name="q" autofocus />
+        <label for="lvl">Levels: </label>
+        <input type="number" id="lvl" name="l" autofocus />
+        <input value="Crawl" onclick="reveal()" class="button"/>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js"></script>
+    
+    
+    <div id="board" class='row' style="display: flex; justify-content: center; align-items: center;">
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js"></script>
 
-        <p>Enter your link here</p>
+    <p id="demo"></p>
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    </script>
 
-        <form action = "/crawl/">
-            <input type="text" name = "text"><br>
-            <label for="level">Levels:</label>
-            <input typ="number" id="level" name="level"><br>
-            <input type = "submit" name = "index.html" value="Crawl">
-        </form>
+    <script>
+        function reveal(){
+            document.getElementById("board").innerHTML = "<div class='small-8 columns'><h1> Results </h1><h3> Query: {{ query }} </h3><ol>{% for hit in hits %}<li><a href=\"/{{ hit.path }}\">{{ hit.title }}</a> (Score: {{ hit.score|floatformat:3 }}) <br />{{ hit.body|slice:\":100\" }}</li>{% endfor %}</ol></div>";
+        }
+    </script>
 
     </body>
     
