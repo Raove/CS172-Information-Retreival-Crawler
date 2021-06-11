@@ -15,14 +15,10 @@ from requests.models import Response
 URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
 #saved path for file crawling test purposes, replace red text in line 41 and 57
-<<<<<<< Updated upstream
 Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
 Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
-=======
-#Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
-Brianpath = ""
->>>>>>> Stashed changes
 Mariopath = ""
+Arturopath = "C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files"
 list1 = []
 def find_body(html_file):
     #html_file =html_file.read()
