@@ -14,7 +14,7 @@ from requests.models import Response
 
 URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
-#saved path for file crawling test purposes, replace red text in line 41 and 57
+#saved path for file crawling test purposes, replace red text in line 70 and 86
 #Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
 #Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
 #Mariopath = ""
