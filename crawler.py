@@ -8,7 +8,7 @@ URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "ht
 
 #saved path for file crawling test purposes, replace red text in line 41 and 57
 Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
-Brianpath = ""
+Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
 Mariopath = ""
 Arturopath = ""
 
