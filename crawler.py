@@ -6,6 +6,12 @@ import urllib.robotparser
 exitProgram = False
 URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
+#saved path for file crawling test purposes, replace red text in line 41 and 57
+Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
+Brianpath = ""
+Mariopath = ""
+Arturopath = ""
+
 while(exitProgram != True):
     print("\n\nChoose an option:\n1. Run crawler and make HTML files.\n2. Build index.\n3. Show URL's crawled.\n4. Add URL to crawl.\n5. Exit program.\n")
     option = input()
