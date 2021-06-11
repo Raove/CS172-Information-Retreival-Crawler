@@ -23,27 +23,37 @@
         <input type="text" id="id_q" name="q" autofocus />
         <label for="lvl">Levels: </label>
         <input type="number" id="lvl" name="l" autofocus />
-        <input value="Crawl" onclick="reveal()" class="button"/>
+        <input value="Crawl" class="button"/>
+        
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js"></script>
     
+    <!--Comment-->
     
-    <div id="board" class='row' style="display: flex; justify-content: center; align-items: center;">
-        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.min.js"></script>
 
-    <p id="demo"></p>
-    <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-    </script>
+    <script src="index.js"></script>
 
-    <script>
-        function reveal(){
-            document.getElementById("board").innerHTML = "<div class='small-8 columns'><h1> Results </h1><h3> Query: {{ query }} </h3><ol>{% for hit in hits %}<li><a href=\"/{{ hit.path }}\">{{ hit.title }}</a> (Score: {{ hit.score|floatformat:3 }}) <br />{{ hit.body|slice:\":100\" }}</li>{% endfor %}</ol></div>";
-        }
-    </script>
+    
+    {% block content%}
+    <div class="results">
+        <h1>Query {{query}} resulted in</h1>
+        <table>
+            <tr>
+                <th>Hits</th>
+                <th>Title</th>
+                <th>Content</th>
+            </tr>
+
+            {%for(hits, title, content) in resultList %}
+            <tr class="resultClass"><td>{{hits}}</td><td>{{title}}</td><td>{{content}}</td></tr>
+            {% endfor %}
+        </table>
+    {% endblock %}
+
+
 
     </body>
     
