@@ -17,7 +17,7 @@ URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "ht
 #saved path for file crawling test purposes, replace red text in line 70 and 86
 #Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
 #Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
-#Mariopath = ""
+#Mariopath = "C:\Users\mario\Desktop\cs172\finalProject\source\files"
 #Arturopath = "C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files"
 
 list1 = []
