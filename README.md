@@ -12,7 +12,7 @@ This is the final project for CS172 information retrieval of a basic web crawler
 
 ## Running our code
 Before you run our code, you have to change your saved files path, for file crawling replace text in line 71, 87, and 117 with your own file path, it won't be the same as ours.
-Just run ``python application.py`` to start our program, you will see a menu that is pretty easy to follow.
+Just run ``$ python application.py`` to start our program, you will see a menu that is pretty easy to follow.
 
 ## Part 1
 
