@@ -10,6 +10,10 @@
 
 This is the final project for CS172 information retrieval of a basic web crawler. The language used for the program is 'Python 3.9.x'.
 
+## Running our code
+Before you run our code, you have to change your saved files path, for file crawling replace text in line 71, 87, and 117 with your own file path, it won't be the same as ours.
+Just run ``python application.py`` to start our program, you will see a menu that is pretty easy to follow.
+
 ## Part 1
 
 We implemented a crawler that crawls html files given a url. The main functionality is in 'crawler.py'. We imported two libraries, 'requests' and 'from urllib.parse import urlparse'. The class 'PyCrawler' takes in an object will extract the information from the starting url. It will check the html from the sites and 'urlparse' will parse the links. The 'crawl' function will check the visited links and extract the infromation of each by specific titles and keywords.
