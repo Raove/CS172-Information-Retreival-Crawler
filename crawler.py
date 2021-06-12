@@ -43,7 +43,7 @@ def find_body(html_file):
 def crawler():
     exitProgram = False
     while(exitProgram != True):
-        print("\n\nChoose an option:\n1. Run crawler and make HTML files.\n2. Build index.\n3. Show URL's crawled.\n4. Add URL to crawl.\n5. Exit program.\n")
+        print("\n\nChoose an option:\n1. Run crawler and make HTML files.\n2. Build index.\n3. Show URL's crawled.\n4. Add URL to crawl.\n5. Run website.\n")
         option = input()
         print('\n')
         if option == '1':
