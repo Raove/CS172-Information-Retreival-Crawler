@@ -1,9 +1,9 @@
 # CS172-Information-Retreival-Crawler
  
-## Raoul 'Raove' Larios
-## Arturo 'Big Churro' Delgado
-## Mario 'Choduh' Aguirre
-## Brian 'Fingerless' Corbita
+## Raoul Larios
+## Arturo Delgado
+## Mario Aguirre
+## Brian Corbita
 
 
 ## Insight
