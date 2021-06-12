@@ -67,7 +67,7 @@ def crawler():
                     soup = BeautifulSoup(source, 'lxml')
                     filename = url.translate({ord(i): '' for i in ' |!@#$%^&*\()_+=<>\",.:;?/\\[]\{\}~`\n\t\r\b\f-\''})
                     filename = filename.replace('http', '')
-                    f = open(r"C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
+                    f = open(r"C:\Users\mario\Desktop\cs172\finalProject\source\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                     f.write(soup.prettify())
                     f.close()
                     for urls in soup.find_all('a', href=True):
@@ -83,7 +83,7 @@ def crawler():
                                     soup2 = BeautifulSoup(source2, 'lxml')
                                     filename = urls.get('href').translate({ord(i): '' for i in ' |!@#$%^&*\()_+=<>\",.:;?/\\[]\{\}~`\n\t\r\b\f-\''})
                                     filename = filename.replace('http', '')
-                                    f = open(r"C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
+                                    f = open(r"C:\Users\mario\Desktop\cs172\finalProject\source\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                                     f.write(soup2.prettify())
                                     f.close()
                                     print("Level:",level)
@@ -111,7 +111,7 @@ def crawler():
             print(response)
 
             indexName = "cs172_index"
-            os.chdir(r"C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files")
+            os.chdir(r"C:\Users\mario\Desktop\cs172\finalProject\source\files")
             #print(os.getcwd())
             for html_file in os.listdir(os.getcwd()):
                 with open(html_file, 'r', encoding='utf-8') as f:

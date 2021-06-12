@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder='webAppFlaskFolder/templates')
 
-#from crawler import Query(?)
+from crawler import crawler
 
 @app.route('/')
 
@@ -14,15 +14,15 @@ def home():
 def home_post():
     userQuery = request.form['search']
 
-    queryResult = Query.search(userQuery)
+    queryResult = crawler.search(userQuery)
     return render_template('index.html', query=userQuery, resultList=queryResult)
 
-@app.route('/', methods=['POST'])
-def results():
-    userQuery = request.form['search']
+# @app.route('/', methods=['POST'])
+# def results():
+#     userQuery = request.form['search']
 
-    queryResult = Query.search(userQuery)
-    return render_template('index.html', query=userQuery, resultList=queryResult)
+#     queryResult = crawler.search(userQuery)
+#     return render_template('index.html', query=userQuery, resultList=queryResult)
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run()
