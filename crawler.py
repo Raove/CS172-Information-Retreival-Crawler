@@ -8,15 +8,16 @@ from elasticsearch import Elasticsearch
 import os
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
+# from application import app
 
 from requests.models import Response
 
 
 URLs = ["https://www.ucla.edu/", "https://uci.edu/", "https://www.ucr.edu/", "https://www.ucsd.edu/"]
 
-#saved path for file crawling test purposes, replace red text in line 70 and 86
+#saved path for file crawling test purposes, replace red text in line 71, 87, and 117
 #Raoulpath = "C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files"
-#Brianpath = "C:\Users\Brian\Desktop\Git-Project\CS172-Information-Retreival-Crawler\files"
+#Brianpath = "C:\Users\Brian\Desktop\Git Project\CS172-Information-Retreival-Crawler\files"
 #Mariopath = "C:\Users\mario\Desktop\cs172\finalProject\source\files"
 #Arturopath = "C:\Users\artur\OneDrive\Documents\CS 172\assignment2\CS172-Information-Retreival-Crawler\files"
 
@@ -67,7 +68,7 @@ def crawler():
                     soup = BeautifulSoup(source, 'lxml')
                     filename = url.translate({ord(i): '' for i in ' |!@#$%^&*\()_+=<>\",.:;?/\\[]\{\}~`\n\t\r\b\f-\''})
                     filename = filename.replace('http', '')
-                    f = open(r"C:\Users\Brian\Desktop\Git-Project\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
+                    f = open(r"C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                     f.write(soup.prettify())
                     f.close()
                     for urls in soup.find_all('a', href=True):
@@ -83,7 +84,7 @@ def crawler():
                                     soup2 = BeautifulSoup(source2, 'lxml')
                                     filename = urls.get('href').translate({ord(i): '' for i in ' |!@#$%^&*\()_+=<>\",.:;?/\\[]\{\}~`\n\t\r\b\f-\''})
                                     filename = filename.replace('http', '')
-                                    f = open(r"C:\Users\Brian\Desktop\Git-Project\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
+                                    f = open(r"C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files" +"\\"+ filename  + ".html", "w", encoding='utf-8')
                                     f.write(soup2.prettify())
                                     f.close()
                                     print("Level:",level)
@@ -98,6 +99,8 @@ def crawler():
                 # print(pageUrls)
 
         if option == '2':
+            print("Input query: ")
+            query = input()
             elastic_pass = "MxOVYVBJTzWEcqsAlMmnY5dA"
             #i-o-optimized-deployment-288542.es.eastus2.azure.elastic-cloud.com:9243
             elastic_endpoint = "i-o-optimized-deployment-288542.es.eastus2.azure.elastic-cloud.com:9243"
@@ -111,7 +114,7 @@ def crawler():
             print(response)
 
             indexName = "cs172_index"
-            os.chdir(r"C:\Users\Brian\Desktop\Git-Project\CS172-Information-Retreival-Crawler\files")
+            os.chdir(r"C:\Users\raoul\Documents\GitHub\CS172-Information-Retreival-Crawler\files")
             #print(os.getcwd())
             for html_file in os.listdir(os.getcwd()):
                 with open(html_file, 'r', encoding='utf-8') as f:
@@ -128,8 +131,6 @@ def crawler():
                 f.close()
             response  = esConn.search(index=indexName, body={"query":{"match_all":{}}})
                     #print(response)
-                
-            query = "unleash"
             response = esConn.search(index=indexName,body = {
                 'query':{
                     'match':{
@@ -137,6 +138,7 @@ def crawler():
                     }
                 }
             })
+            
             print(response)
                 
             #esConn = Elasticsearch(connection_string)
@@ -155,7 +157,6 @@ def crawler():
         if option == '5':
             exitProgram = True
 
-    
 crawler()
 
 
