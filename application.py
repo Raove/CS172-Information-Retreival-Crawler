@@ -1,7 +1,7 @@
 import flask
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='webAppFlaskFolder/templates')
 
 #from crawler import Query(?)
 
